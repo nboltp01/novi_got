@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Счетчик до Нового Года 2026</title>
+    <title>Счетчик до Нового Года 2027</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -61,6 +61,21 @@
             margin-top: 10px;
         }
         
+        .year-2027 {
+            color: #ff7675;
+            font-weight: bold;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px rgba(255, 118, 117, 0.8);
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
         .counter {
             display: flex;
             justify-content: center;
@@ -114,21 +129,6 @@
         .highlight {
             color: #ffeaa7;
             font-weight: bold;
-        }
-        
-        .year-2026 {
-            color: #ff7675;
-            font-weight: bold;
-            font-size: 2.5rem;
-            text-shadow: 0 0 15px rgba(255, 118, 117, 0.8);
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
         
         .snowflake {
@@ -280,7 +280,7 @@
                 font-size: 1.4rem;
             }
             
-            .year-2026 {
+            .year-2027 {
                 font-size: 2rem;
             }
         }
@@ -317,9 +317,9 @@
     
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-clock"></i> Счетчик до Нового Года</h1>
-            <p class="subtitle">Осталось времени до наступления 2026 года:</p>
-            <div class="new-year">1 января <span class="year-2026">2026</span> года</div>
+            <h1><i class="fas fa-clock"></i> Счетчик до Нового Года 2027</h1>
+            <p class="subtitle">Осталось времени до наступления 2027 года:</p>
+            <div class="new-year">1 января <span class="year-2027">2027</span> года</div>
         </div>
         
         <div class="counter">
@@ -350,12 +350,12 @@
         <div class="progress-text" id="progress-text">Прогресс текущего года: 0%</div>
         
         <div class="message">
-            <p>Пусть уходящий год заберёт с собой все печали, а <span class="highlight">Новый <span class="year-2026">2026 год</span></span> принесёт радость, удачу и благополучие!</p>
+            <p>Пусть уходящий год заберёт с собой все печали, а <span class="highlight">Новый <span class="year-2027">2027 год</span></span> принесёт радость, удачу и благополучие!</p>
         </div>
         
         <div class="footer">
             <p>Создано с <i class="fas fa-heart" style="color: #ff7675;"></i> для праздничного настроения</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">© 2025 Новогодний счетчик до 2026 года</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">© 2024 Новогодний счетчик до 2027 года</p>
         </div>
     </div>
 
@@ -437,10 +437,10 @@
         // Функция обновления счетчика
         function updateCounter() {
             const now = new Date();
-            const newYear2026 = new Date('January 1, 2026 00:00:00');
+            const newYear2027 = new Date('January 1, 2027 00:00:00');
             
-            // Если Новый 2026 год уже наступил
-            if (now >= newYear2026) {
+            // Если Новый 2027 год уже наступил
+            if (now >= newYear2027) {
                 document.getElementById('days').textContent = '00';
                 document.getElementById('hours').textContent = '00';
                 document.getElementById('minutes').textContent = '00';
@@ -449,11 +449,11 @@
                 document.getElementById('progress-text').textContent = 'Прогресс текущего года: 100%';
                 
                 document.querySelector('.message p').innerHTML = 
-                    '<span class="highlight">С Новым 2026 Годом! 🎉</span> Пусть 2026 год принесет счастье, здоровье и успех во всех начинаниях!';
+                    '<span class="highlight">С Новым 2027 Годом! 🎉</span> Пусть 2027 год принесет счастье, здоровье и успех во всех начинаниях!';
                 return;
             }
             
-            const diff = newYear2026 - now;
+            const diff = newYear2027 - now;
             
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -465,22 +465,22 @@
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             
-            // Расчет прогресса текущего года (2025)
-            const startOf2025 = new Date('January 1, 2025 00:00:00');
-            const endOf2025 = new Date('December 31, 2025 23:59:59');
-            const total2025Time = endOf2025 - startOf2025;
-            const elapsed2025Time = now - startOf2025;
+            // Расчет прогресса текущего года (2026)
+            const startOf2026 = new Date('January 1, 2026 00:00:00');
+            const endOf2026 = new Date('December 31, 2026 23:59:59');
+            const total2026Time = endOf2026 - startOf2026;
+            const elapsed2026Time = now - startOf2026;
             
             let progressPercentage = 0;
-            if (now >= startOf2025 && now <= endOf2025) {
-                progressPercentage = Math.min(100, (elapsed2025Time / total2025Time) * 100);
-            } else if (now > endOf2025) {
+            if (now >= startOf2026 && now <= endOf2026) {
+                progressPercentage = Math.min(100, (elapsed2026Time / total2026Time) * 100);
+            } else if (now > endOf2026) {
                 progressPercentage = 100;
             }
             
             document.getElementById('year-progress').style.width = `${progressPercentage}%`;
             document.getElementById('progress-text').textContent = 
-                `Прогресс 2025 года: ${progressPercentage.toFixed(2)}%`;
+                `Прогресс 2026 года: ${progressPercentage.toFixed(2)}%`;
             
             // Создаем фейерверки каждые несколько секунд
             if (seconds % 5 === 0) {
